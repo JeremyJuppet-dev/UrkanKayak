@@ -1,0 +1,949 @@
+@charset "iso-8859-1";
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFF;
+	font-size: 16px;
+}
+
+/* FONTS */
+
+/* Guillaume */
+
+@font-face {
+    font-family: "Urkan-GN-UltraI";
+    src: url(https://www.urkankayak.com/fonts/Gotham-Narrow-Ultra-Italic.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/Gotham-Narrow-Ultra-Italic.woff) format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Urkan-GN-BlackI";
+    src: url(https://www.urkankayak.com/fonts/GothamNarrow-BlackItalic.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/GothamNarrow-BlackItalic.woff) format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Urkan-GN-Book";
+    src: url(https://www.urkankayak.com/fonts/GothamNarrow-Book.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/GothamNarrow-Book.woff) format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Urkan-GN-BookI";
+    src: url(https://www.urkankayak.com/fonts/GothamNarrow-BookItalic.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/GothamNarrow-BookItalic.woff) format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Urkan-GN-Medium";
+    src: url(https://www.urkankayak.com/fonts/GothamNarrow-Medium.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/GothamNarrow-Medium.woff) format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Urkan-GN-LightI";
+    src: url(https://www.urkankayak.com/fonts/Gotham-Narrow-Light-Italic.woff2) format("woff2"), url(https://www.urkankayak.com/fonts/fonts/Gotham-Narrow-Light-Italic.woff) format("woff");
+    font-style: normal;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1,  h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	/* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+
+
+h2{
+	margin-top: 0;
+	font-size: 16px;
+	color: #333;
+	text-transform: none;
+	font-weight: normal;
+	line-height: normal;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	text-decoration: none; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+	color: #000;
+}
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+    color: #454545;
+}
+
+/* ~~ Javi aqui defino el estilo de los div generales */
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 165px;
+}
+
+.header {
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    position: fixed;
+    z-index: 999999;
+    box-shadow: 0px -5px 20px 5px rgba(0, 0, 0, 0.05);
+    margin-top: -165px!important;
+    background: #fffffff2;
+}
+
+.headerInterior {
+    max-width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    padding: 25px;
+    margin: auto;
+}
+
+.header_logotipo {
+    position: relative;
+    left: 0;
+    display: flex;
+    min-width: 275px;
+    width: 30%;
+}
+
+img.logo-urkan {
+    max-width: 275px;
+    height: auto;
+    margin-right: 1em;
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    vertical-align: middle;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.header-menu1 {
+    display: flex;
+    width: 65%;
+    justify-content: flex-end;
+}
+
+.lkn_menu>img {
+    border-radius: 50%;
+}
+
+.header-cuenta {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    font-family: "Urkan-GN-BookI";
+    margin: 20px;
+    flex-flow: nowrap;
+}
+
+.icon {
+    margin-bottom: -4px;
+    margin-right: 5px;
+}
+
+.headerinfobar {
+    height: 35px;
+    background-color: #000;
+}
+
+.headerinsideinfobar {
+    color: #fff;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 95%;
+    font-size: 15px;
+}
+
+.infobarelement {
+    font-family: "Urkan-GN-BookI";
+    margin: auto;
+}
+
+.header_contacto {
+    position: relative;
+    margin-left: 275px;
+}
+
+div.header_contacto > a > img {
+    margin: 0px 4px -4px 0px;
+}
+
+/* --- Guillaume Search Style --- */
+
+input[name="fbuscar"] {
+    height: 20px;
+    font-size: 16px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 3px;
+    padding-right: 20px;
+    width: 0px;
+    position: absolute;
+    background: none;
+    z-index: 3;
+    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+    font-family: "Urkan-GN-BookI";
+}
+
+input[name="fbuscar"]:focus:hover {
+    border-bottom: 1px solid #BBB;
+}
+
+input[name="fbuscar"]:focus {
+  width: 150px;
+  z-index: 1;
+  border-bottom: 2px solid #e6e6e6;
+  cursor: text;
+  padding-left: 30px;
+}
+
+/* --- END - Guillaume Search Style --- */
+
+.header_carrito {
+    width: 210px;
+    height: 50px;
+    float: right;
+    text-align: center;
+    padding-top: 50px;
+    display: none; /* Guillaume - need to change place */
+}
+
+.subcontenedor {
+    width: 80%;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.sidebar1 {
+	float: left;
+	width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.content {
+	width: 820px;
+	float: left;
+}
+
+.encabezadocontenido {
+    width: 100%;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    text-align: right;
+    padding-top: 5px;
+    color: #666;
+    line-height: 5px;
+}
+
+.encabezadocontenido_letrapeque {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #999;
+	text-transform: none;
+	vertical-align: bottom;
+	
+}
+
+a.lkn_encabezadocontenido_letrapeque:visited{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #999;
+	text-transform: none;
+}
+
+a.lkn_encabezadocontenido_letrapeque:link{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #999;
+	text-transform: none;
+}
+
+a.lkn_encabezadocontenido_letrapeque:active{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #999;
+	text-transform: none;
+}
+
+a.lkn_encabezadocontenido_letrapeque:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #F93;
+	text-decoration: none;
+	
+	}
+
+.contenido_dentro {
+	width: 820px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	
+	padding-top: 5px;	
+	
+}
+
+.contenido_dentro_kayaks {
+	width: 820px;
+	float: left;
+	padding-top: 10px;
+	vertical-align: bottom;
+    /*Guillaume*/
+    -webkit-transition: 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);	
+}
+
+/*Guillaume*/
+.contenido_dentro_kayaks:hover {
+    margin-left: -50px;
+}
+
+.contenido_dentro_kayaksfoto {
+	width: 600px;
+	float: left;
+	text-align: right;
+	vertical-align: top;	
+	
+	
+	
+}
+.contenido_dentro_kayakstexto {
+	width: 200px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	padding-left: 5px;
+	vertical-align: bottom;	
+	
+		
+}
+/*Listado kayaks*/
+/*Listado productos y libros*/
+.contenido_dentro_producto {
+	width: 270px;
+	font-size: 18px;
+	float: left;
+	height: 160px;
+	
+	padding-top: 10px;
+	margin-right: 1px;
+}
+.contenido_dentro_productofoto {
+	width: 150px;
+	height: 150px;
+	float: left;
+	vertical-align: bottom;
+	text-align: right;	
+}
+.contenido_dentro_productotexto {
+	width: 110px;
+	height: 105px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 45px;
+	
+}
+
+
+a.lkn_contenido_dentro_productotexto:visited{
+	font-size: 18px;
+	color: #333;
+	text-transform: none;
+	font-weight: normal;
+}
+a.lkn_contenido_dentro_productotexto:link{
+	font-size: 18px;
+	color: #333;
+	text-transform: none;
+	font-weight: normal;
+}
+a.lkn_contenido_dentro_productotexto:active{
+	font-size: 18px;
+	color: #333;
+	text-transform: none;
+	font-weight: normal;
+}
+a.lkn_contenido_dentro_productotexto:hover{
+	font-size: 18px;
+	color: #F93;
+	text-transform: none;
+	font-weight: normal;
+	}
+
+
+.precioenlistado {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: none;
+	color: #666666;
+	font-weight: normal;
+}
+.decimalenlistado{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+	color: #666666;
+	font-weight: normal;
+}
+.precioenlistadotachado {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: none;
+	text-decoration: line-through;
+	color: #FF9900;
+	font-weight: normal;
+}
+.decimalenlistadotachado{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: line-through;
+	color: #FF9900;
+	font-weight: normal;
+}
+
+/*Listado productos */
+
+/*Listado palas*/
+.contenido_dentro_palas {
+	width: 270px;
+	float: left;
+	padding-top: 10px;
+	margin-right: 1px;
+	height: 100px;
+}
+.contenido_dentro_palasfoto {
+	width: 150px;
+	float: left;
+	vertical-align: bottom;	
+	
+	
+}
+.contenido_dentro_palastexto {
+	width: 110px;
+	
+	float: left;
+	
+	text-align: left;
+	padding-right: 10px;
+	
+	
+}
+/*Listado palas*/
+
+/*FORMATEO DEL PRECIO EN EL DETALLE DEL PRODUCTO */
+.precioendetalle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: none;
+	color: #000000;
+}
+.decimalendetalle{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+/*FORMATEO DEL PRECIO EN EL DETALLE DEL PRODUCTO */
+/*FORMATEO DEL PRECIO antes de Outlet EN EL DETALLE DEL PRODUCTO */
+.precioendetalletachado {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: none;
+	text-decoration: line-through;
+	color: #FF9900;
+}
+.decimalendetalletachado{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	text-decoration: line-through;
+	color: #FF9900;
+}
+/*FORMATEO DEL PRECIO antes de outlet EN EL DETALLE DEL PRODUCTO */
+.descripcion_producto{
+	text-decoration: none;
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-style: oblique;
+}
+.stockcarrito {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: none;
+	color: #000000;
+	line-height: 25px;
+	text-decoration: none;
+}
+.footer {
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+	width: 100%;
+	height: 120px;
+	
+}
+
+.capaadministracion {
+	width:600px;
+	
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+	.capaadministraciongrande {
+	width: 800px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	list-style-position: inside;
+	list-style-type: disc;
+}
+	.capaprotecciondatos{
+	width: 800px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	
+}
+.capaadministracionresumen {
+	width: 360px;
+	float: left;
+	border: 1px solid #CCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	height: 300px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+.capapedidosadminUK {
+	width: 360px;
+	float: left;
+	border: 1px solid #CCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	height: 300px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	text-transform: uppercase;
+}
+
+.capaprealta {
+	width: 360px;
+	float: left;
+	border: 1px solid #CCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	height: 120px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	
+}
+.capaadministracionresumengrande {
+	width: 760px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	border: 1px solid #CCC;
+	padding: 20px;
+	margin: 10px;
+}
+.tablaslistadosadministracion{
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #CCC;
+	line-height: 30px;
+	list-style-position: inside;
+	list-style-type: disc;
+	width: 80%;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+
+.capacarritograndesinborde {
+	width: 760px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 20px;
+	margin: 10px;
+}
+
+.capalistadooficinas {
+	width: 760px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	
+	margin: 10px;
+}
+
+
+
+.footerInterior {
+	width: 1020px;
+	height: 120px;
+	margin: 0 auto;
+	padding-top: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999;
+	}
+
+	
+/* ~~ Javi Fin de los estilos de los div generales */
+.tablasformularios{
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+	padding: 10px;
+	border: thin solid #CCC;
+	margin: auto;	
+}
+
+.listadoproductoshistorico{
+	padding-left: 100px;	
+	
+	}
+
+.datospedido_listadopedido {
+	width: 600px;
+	float: left;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-decoration: none;	
+}	
+.datoscliente_listadopedido {
+	width: 200px;
+	float: left;
+	text-transform: uppercase;	
+}	
+.datoscliente_email {
+	text-transform: lowercase;
+}	
+
+.datosenvio_listadopedido {
+	width: 800px;
+	float: left;
+	border: 1px solid #CCC;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}	
+
+
+/* MENU PRINCIPAL */
+
+.menu0{
+    font-family: "Urkan-GN-BookI";
+    font-weight: bold;
+    width: 200px;
+    color: #000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.menu1{
+	width: 185px;
+	color: #000000;
+	background-color: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+	padding-left: 15px;
+    
+    /* Guillaume
+    visibility: visible;
+    position: relative;
+    background: -moz-linear-gradient(45deg, #041884 0%,#03A9F4 100%);
+    background: -webkit-linear-gradient(45deg, #041884 0%,#03A9F4 100%);
+    background: linear-gradient(45deg, #041884 0%,#03A9F4 100%);
+    border-radius: 0px 0px 20px 20px;
+    padding: 25px 0px 19px;
+    margin: -25px 0px 8px;
+    z-index: -100;
+    width: auto; */
+}
+
+.menu2{
+	width: 170px;
+	color: #454545;
+	background-color: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+	padding-left: 15px;
+	text-transform: capitalize;
+}
+
+a.lkn_menu:visited{
+	color: #CCC;
+	text-decoration: none;
+}
+
+a.lkn_menu:link{
+	color: #454545;
+	text-decoration: none;
+
+    /* Guillaume
+    margin-right: 0px;
+    padding-left: 15px;
+    line-height: 30px;
+    width: 100px; */
+}
+
+a.lkn_menu:active{
+	color: #CCC;
+	text-decoration: none;
+}
+
+a.lkn_menu:hover{
+	color: #CCC;
+	text-decoration: none;
+	
+	}
+
+/* FIN CLASES PARA EL MENU PRINCIPAL */
+
+/* CLASES PARA EL ZOOM PRODUCTOS */
+		.zoom {
+			display:inline-block;
+			position: relative;
+		}
+		
+		/* magnifying glass icon */
+		.zoom:after {
+			content:'';
+			display:block; 
+			width:33px; 
+			height:33px; 
+			position:absolute; 
+			top:0;
+			right:0;
+			background:url(../Productos/scriptparazoom/icon.png);
+		}
+
+		.zoom img {
+			display: block;
+		}
+
+		.zoom img::selection { background-color: transparent; }
+
+		#ex2 img:hover { cursor: url(../Productos/scriptparazoom/grab.cur), default; }
+		#ex2 img:active { cursor: url(../Productos/scriptparazoom/grabbed.cur), default; }
+
+/* FIN CLASES PARA EL ZOOM PRODUCTOS */
+/* ESTILOS PARA EL CAMBIO DE IMAGENES EN SEGUNDA MANO */
+
+#detalle1 {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:1;
+	visibility: hidden;
+}
+#detalle2 {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:2;
+	visibility: hidden;
+}
+#detalle3 {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:3;
+	visibility: hidden;
+}
+/* ESTILOS PARA EL CAMBIO DE IMAGENES EN SEGUNDA MANO */
+
+/* slider para index */
+		
+		#slider {
+	position: relative;
+	overflow: hidden;
+	width: 800px;
+	height: 500px;
+	border: 1px solid #CCC;
+	margin: 0 auto;
+	padding: 0;
+}
+#slider > div {
+position:absolute;
+top:0;
+left:0;
+}
+#slider img {
+width:100%;
+min-height:500px;
+margin:0;
+padding:0; 
+border:0;
+}
+#slider p {
+	position: absolute;
+	bottom: 50px;
+	display: block;
+	width: 280px;
+	height: 14px;
+	color: #eee;
+	font-size: 14px;
+	line-height: 14px;
+	text-align: left;
+	background-color: #999999;
+	left: 520px;
+	padding-top: 5px;
+	padding-right: 0;
+	padding-bottom: 5px;
+	padding-left: 5;
+	margin-top: 0;
+	
+}
+
+/* fin slider para index */
+.capaindexpequeno {
+	width: 365px;
+	float: left;
+	border: 0
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	height: 290px;
+	padding: 10px;
+	border: 1px solid #CCC;
+	margin: 10px;
+}
+.capaindex200 {
+	width: 235px;
+	float: left;
+	border: 0
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	height: 220px;
+	padding: 10px;
+	border: 1px solid #CCC;
+	margin: 8px;
+}
+
+@media (max-width: 1055px) {
+    
+span.header-cuenta-txt {
+    display: none;
+}
+
+.header-menu1 {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+
+.header_logotipo {
+    margin: auto;
+    justify-content: center;
+    width: 100%; 
+}
+
+a.logo-link {
+    margin: auto;
+    justify-content: center;
+    width: 100%; 
+}
+    
+.container {
+    margin-top: 195px;
+}
+
+.header {
+    margin-top: -195px!important;
+}
+    
+}
